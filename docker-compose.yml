@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  postgres-iot:
+    image: postgres:15
+    container_name: postgres-iot
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sua_senha
+      POSTGRES_DB: iot_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_iot_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_iot_data:
